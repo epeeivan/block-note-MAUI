@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.noteList"
+             xmlns:local="clr-namespace:Notes.models"
+             Title="noteList">
+
+    <Grid RowDefinitions="50,*,50" ColumnDefinitions="*" >
+        <Entry Placeholder="search"/>
+        <AbsoluteLayout>
+            <Button Text="+" FontSize="20" WidthRequest="40" HeightRequest="40" 
+                    BackgroundColor="#2A8CFF" TextColor="White" VerticalOptions="End" HorizontalOptions="End"/>
+        </AbsoluteLayout>
+
+        <CollectionView  Grid.Row="1" Grid.Column="0" BackgroundColor="White">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type local:Note}">
+                    <local:Note title="Steve" content="Lorem ipsum dolor sitamet, consectetur adipiscing elit." date="1 hour ago" />
+                    <local:Note title="Remember for charlie" content="Lorem ipsum dolor sitamet, consectetur adipiscing elit.mwiwieuw" date="yesterday" />
+                    <local:Note title="make user " content="Lorem ipsum dolor sitamet, consectetur adipiscing elit.mwiwieuw" date="1 hour ago" />
+                    <local:Note title="send money from mother" content="Lorem ipsum dolor sitamet, consectetur adipiscing elit.mwiwieuw" date="1 hour ago" />
+                    <local:Note title="Bring back the money" content="Lorem ipsum dolor sitamet, consectetur adipiscing elit.mwiwieuw" date="1 hour ago" />
+                    <local:Note title="read books" content="Lorem ipsum dolor sitamet, consectetur adipiscing elit.mwiwieuw" date="1 hour ago" />
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalOptions="Fill" RowDefinitions="30,50,*" ColumnDefinitions="*" Padding="10">
+                        <Label Text="{Binding title}" FontSize="16" FontAttributes="Bold" TextColor="#212121"></Label>
+                        <Label Text="{Binding content}" Grid.Column="0" Grid.Row="1" TextColor="#626262" FontFamily="10px"></Label>
+                        <Label Text="{Binding date}" Grid.Column="0" Grid.Row="2" FontSize="12" FontAttributes="Bold" TextColor="#626262"></Label>
+                    </Grid>
+                </DataTemplate>
+                </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Grid RowDefinitions="*" ColumnDefinitions="50*,50*" Grid.Row="2" Grid.Column="0" BackgroundColor="#D9D9D9">
+            <Image Source="list.png" WidthRequest="20"/>
+            <Image Source="share.png" WidthRequest="20" Grid.Column="1" Grid.Row="0"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>
